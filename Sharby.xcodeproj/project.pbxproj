@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		406937362B570B7A00A1AA7C /* SharbyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937352B570B7A00A1AA7C /* SharbyApp.swift */; };
-		406937382B570B7A00A1AA7C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937372B570B7A00A1AA7C /* ContentView.swift */; };
+		406937382B570B7A00A1AA7C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937372B570B7A00A1AA7C /* MainView.swift */; };
 		4069373A2B570B7A00A1AA7C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937392B570B7A00A1AA7C /* Item.swift */; };
 		4069373C2B570B7C00A1AA7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4069373B2B570B7C00A1AA7C /* Assets.xcassets */; };
 		4069373F2B570B7C00A1AA7C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4069373E2B570B7C00A1AA7C /* Preview Assets.xcassets */; };
+		406937482B570D1700A1AA7C /* OpportunityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937472B570D1700A1AA7C /* OpportunityListView.swift */; };
+		4069374A2B570D2000A1AA7C /* CoinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937492B570D2000A1AA7C /* CoinListView.swift */; };
+		4069374C2B570D3C00A1AA7C /* ExchangeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069374B2B570D3C00A1AA7C /* ExchangeListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		406937322B570B7A00A1AA7C /* Sharby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sharby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		406937352B570B7A00A1AA7C /* SharbyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharbyApp.swift; sourceTree = "<group>"; };
-		406937372B570B7A00A1AA7C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		406937372B570B7A00A1AA7C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		406937392B570B7A00A1AA7C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		4069373B2B570B7C00A1AA7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4069373E2B570B7C00A1AA7C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		406937402B570B7C00A1AA7C /* Sharby.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sharby.entitlements; sourceTree = "<group>"; };
+		406937472B570D1700A1AA7C /* OpportunityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityListView.swift; sourceTree = "<group>"; };
+		406937492B570D2000A1AA7C /* CoinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListView.swift; sourceTree = "<group>"; };
+		4069374B2B570D3C00A1AA7C /* ExchangeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +60,9 @@
 		406937342B570B7A00A1AA7C /* Sharby */ = {
 			isa = PBXGroup;
 			children = (
+				4069374D2B570D5B00A1AA7C /* Models */,
+				406937462B570D0200A1AA7C /* Main */,
 				406937352B570B7A00A1AA7C /* SharbyApp.swift */,
-				406937372B570B7A00A1AA7C /* ContentView.swift */,
-				406937392B570B7A00A1AA7C /* Item.swift */,
 				4069373B2B570B7C00A1AA7C /* Assets.xcassets */,
 				406937402B570B7C00A1AA7C /* Sharby.entitlements */,
 				4069373D2B570B7C00A1AA7C /* Preview Content */,
@@ -70,6 +76,25 @@
 				4069373E2B570B7C00A1AA7C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		406937462B570D0200A1AA7C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				406937372B570B7A00A1AA7C /* MainView.swift */,
+				406937472B570D1700A1AA7C /* OpportunityListView.swift */,
+				406937492B570D2000A1AA7C /* CoinListView.swift */,
+				4069374B2B570D3C00A1AA7C /* ExchangeListView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		4069374D2B570D5B00A1AA7C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				406937392B570B7A00A1AA7C /* Item.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,9 +167,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				406937382B570B7A00A1AA7C /* ContentView.swift in Sources */,
+				4069374A2B570D2000A1AA7C /* CoinListView.swift in Sources */,
+				406937482B570D1700A1AA7C /* OpportunityListView.swift in Sources */,
+				406937382B570B7A00A1AA7C /* MainView.swift in Sources */,
 				4069373A2B570B7A00A1AA7C /* Item.swift in Sources */,
 				406937362B570B7A00A1AA7C /* SharbyApp.swift in Sources */,
+				4069374C2B570D3C00A1AA7C /* ExchangeListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
