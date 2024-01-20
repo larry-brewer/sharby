@@ -9,25 +9,43 @@
 /* Begin PBXBuildFile section */
 		406937362B570B7A00A1AA7C /* SharbyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937352B570B7A00A1AA7C /* SharbyApp.swift */; };
 		406937382B570B7A00A1AA7C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937372B570B7A00A1AA7C /* MainView.swift */; };
-		4069373A2B570B7A00A1AA7C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937392B570B7A00A1AA7C /* Item.swift */; };
+		4069373A2B570B7A00A1AA7C /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937392B570B7A00A1AA7C /* Exchange.swift */; };
 		4069373C2B570B7C00A1AA7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4069373B2B570B7C00A1AA7C /* Assets.xcassets */; };
 		4069373F2B570B7C00A1AA7C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4069373E2B570B7C00A1AA7C /* Preview Assets.xcassets */; };
 		406937482B570D1700A1AA7C /* OpportunityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937472B570D1700A1AA7C /* OpportunityListView.swift */; };
-		4069374A2B570D2000A1AA7C /* CoinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937492B570D2000A1AA7C /* CoinListView.swift */; };
+		4069374A2B570D2000A1AA7C /* NetworkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937492B570D2000A1AA7C /* NetworkListView.swift */; };
 		4069374C2B570D3C00A1AA7C /* ExchangeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069374B2B570D3C00A1AA7C /* ExchangeListView.swift */; };
+		4069374F2B57171E00A1AA7C /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069374E2B57171E00A1AA7C /* Coin.swift */; };
+		406937512B5717D600A1AA7C /* ExchangeCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937502B5717D600A1AA7C /* ExchangeCoin.swift */; };
+		406937532B5717EF00A1AA7C /* Opportunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937522B5717EF00A1AA7C /* Opportunity.swift */; };
+		406937562B5718B200A1AA7C /* CoinGeckoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937552B5718B200A1AA7C /* CoinGeckoApi.swift */; };
+		406937582B57783600A1AA7C /* CoinMarketCapApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937572B57783600A1AA7C /* CoinMarketCapApi.swift */; };
+		4069375A2B58236A00A1AA7C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937592B58236A00A1AA7C /* Network.swift */; };
+		4069375D2B5827D600A1AA7C /* CrossExchangeArbyStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069375C2B5827D600A1AA7C /* CrossExchangeArbyStrategy.swift */; };
+		4069375F2B58297400A1AA7C /* Pool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069375E2B58297400A1AA7C /* Pool.swift */; };
+		406937612B5C5BF200A1AA7C /* ProxyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937602B5C5BF200A1AA7C /* ProxyWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		406937322B570B7A00A1AA7C /* Sharby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sharby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		406937352B570B7A00A1AA7C /* SharbyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharbyApp.swift; sourceTree = "<group>"; };
 		406937372B570B7A00A1AA7C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		406937392B570B7A00A1AA7C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		406937392B570B7A00A1AA7C /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
 		4069373B2B570B7C00A1AA7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4069373E2B570B7C00A1AA7C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		406937402B570B7C00A1AA7C /* Sharby.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sharby.entitlements; sourceTree = "<group>"; };
 		406937472B570D1700A1AA7C /* OpportunityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityListView.swift; sourceTree = "<group>"; };
-		406937492B570D2000A1AA7C /* CoinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListView.swift; sourceTree = "<group>"; };
+		406937492B570D2000A1AA7C /* NetworkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkListView.swift; sourceTree = "<group>"; };
 		4069374B2B570D3C00A1AA7C /* ExchangeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeListView.swift; sourceTree = "<group>"; };
+		4069374E2B57171E00A1AA7C /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		406937502B5717D600A1AA7C /* ExchangeCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCoin.swift; sourceTree = "<group>"; };
+		406937522B5717EF00A1AA7C /* Opportunity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opportunity.swift; sourceTree = "<group>"; };
+		406937552B5718B200A1AA7C /* CoinGeckoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinGeckoApi.swift; sourceTree = "<group>"; };
+		406937572B57783600A1AA7C /* CoinMarketCapApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarketCapApi.swift; sourceTree = "<group>"; };
+		406937592B58236A00A1AA7C /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		4069375C2B5827D600A1AA7C /* CrossExchangeArbyStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossExchangeArbyStrategy.swift; sourceTree = "<group>"; };
+		4069375E2B58297400A1AA7C /* Pool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pool.swift; sourceTree = "<group>"; };
+		406937602B5C5BF200A1AA7C /* ProxyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +78,8 @@
 		406937342B570B7A00A1AA7C /* Sharby */ = {
 			isa = PBXGroup;
 			children = (
+				4069375B2B5827BF00A1AA7C /* Strategies */,
+				406937542B57189200A1AA7C /* APIs */,
 				4069374D2B570D5B00A1AA7C /* Models */,
 				406937462B570D0200A1AA7C /* Main */,
 				406937352B570B7A00A1AA7C /* SharbyApp.swift */,
@@ -83,7 +103,7 @@
 			children = (
 				406937372B570B7A00A1AA7C /* MainView.swift */,
 				406937472B570D1700A1AA7C /* OpportunityListView.swift */,
-				406937492B570D2000A1AA7C /* CoinListView.swift */,
+				406937492B570D2000A1AA7C /* NetworkListView.swift */,
 				4069374B2B570D3C00A1AA7C /* ExchangeListView.swift */,
 			);
 			path = Main;
@@ -92,9 +112,32 @@
 		4069374D2B570D5B00A1AA7C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				406937392B570B7A00A1AA7C /* Item.swift */,
+				406937392B570B7A00A1AA7C /* Exchange.swift */,
+				4069374E2B57171E00A1AA7C /* Coin.swift */,
+				406937502B5717D600A1AA7C /* ExchangeCoin.swift */,
+				406937522B5717EF00A1AA7C /* Opportunity.swift */,
+				406937592B58236A00A1AA7C /* Network.swift */,
+				4069375E2B58297400A1AA7C /* Pool.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		406937542B57189200A1AA7C /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				406937552B5718B200A1AA7C /* CoinGeckoApi.swift */,
+				406937572B57783600A1AA7C /* CoinMarketCapApi.swift */,
+				406937602B5C5BF200A1AA7C /* ProxyWrapper.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		4069375B2B5827BF00A1AA7C /* Strategies */ = {
+			isa = PBXGroup;
+			children = (
+				4069375C2B5827D600A1AA7C /* CrossExchangeArbyStrategy.swift */,
+			);
+			path = Strategies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,12 +210,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4069374A2B570D2000A1AA7C /* CoinListView.swift in Sources */,
+				4069374A2B570D2000A1AA7C /* NetworkListView.swift in Sources */,
+				406937512B5717D600A1AA7C /* ExchangeCoin.swift in Sources */,
+				4069375D2B5827D600A1AA7C /* CrossExchangeArbyStrategy.swift in Sources */,
+				4069375A2B58236A00A1AA7C /* Network.swift in Sources */,
 				406937482B570D1700A1AA7C /* OpportunityListView.swift in Sources */,
+				4069375F2B58297400A1AA7C /* Pool.swift in Sources */,
+				406937612B5C5BF200A1AA7C /* ProxyWrapper.swift in Sources */,
+				406937582B57783600A1AA7C /* CoinMarketCapApi.swift in Sources */,
+				406937532B5717EF00A1AA7C /* Opportunity.swift in Sources */,
 				406937382B570B7A00A1AA7C /* MainView.swift in Sources */,
-				4069373A2B570B7A00A1AA7C /* Item.swift in Sources */,
+				4069373A2B570B7A00A1AA7C /* Exchange.swift in Sources */,
 				406937362B570B7A00A1AA7C /* SharbyApp.swift in Sources */,
 				4069374C2B570D3C00A1AA7C /* ExchangeListView.swift in Sources */,
+				406937562B5718B200A1AA7C /* CoinGeckoApi.swift in Sources */,
+				4069374F2B57171E00A1AA7C /* Coin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

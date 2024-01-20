@@ -8,10 +8,10 @@
 import SwiftUI
 import Foundation
 
-struct CoinListView: View {
-  let name: String
+struct NetworkListView: View {
+  let network: Network
 
   var body: some View {
-    Text("\(name)")
+    Text("\(network.name)")
   }
 }

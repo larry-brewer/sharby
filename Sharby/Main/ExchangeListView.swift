@@ -9,9 +9,9 @@ import SwiftUI
 import Foundation
 
 struct ExchangeListView: View {
-  let name: String
+  let exchange: Exchange
 
   var body: some View {
-    Text("\(name)")
+    Text("\(exchange.name)")
   }
 }
