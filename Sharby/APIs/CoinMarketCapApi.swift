@@ -8,15 +8,22 @@
 import Foundation
 import SwiftData
 
-struct CoinMarketCapApi {
+actor CoinMarketCapApi {
   let API_KEY = "3cb8a9a0-d42a-48f9-905c-661b51812238"
   let MAX_COIN_RANK = 100
+  
+  let modelContainer: ModelContainer
+  let modelContext: ModelContext
+  init(modelContainer: ModelContainer) {
+    self.modelContainer = modelContainer
+    self.modelContext = ModelContext(modelContainer)
+  }
 
   struct FetchCoinsResponse: Codable {
     let data:[Coin]
   }
 
-  func fetchCoins(modelContext: ModelContext) async {
+  func fetchCoins() async {
     let coinsUrl = URL(string: "https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?sort=cmc_rank&CMC_PRO_API_KEY=\(API_KEY)")!
 
     do {
@@ -36,7 +43,6 @@ struct CoinMarketCapApi {
         }
       }
 
-      try modelContext.save()
       print("Coin count: \(coins.count)")
     } catch {
       // Handle errors

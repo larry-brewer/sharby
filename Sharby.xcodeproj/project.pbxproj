@@ -16,7 +16,6 @@
 		4069374A2B570D2000A1AA7C /* NetworkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937492B570D2000A1AA7C /* NetworkListView.swift */; };
 		4069374C2B570D3C00A1AA7C /* ExchangeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069374B2B570D3C00A1AA7C /* ExchangeListView.swift */; };
 		4069374F2B57171E00A1AA7C /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069374E2B57171E00A1AA7C /* Coin.swift */; };
-		406937512B5717D600A1AA7C /* ExchangeCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937502B5717D600A1AA7C /* ExchangeCoin.swift */; };
 		406937532B5717EF00A1AA7C /* Opportunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937522B5717EF00A1AA7C /* Opportunity.swift */; };
 		406937562B5718B200A1AA7C /* CoinGeckoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937552B5718B200A1AA7C /* CoinGeckoApi.swift */; };
 		406937582B57783600A1AA7C /* CoinMarketCapApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937572B57783600A1AA7C /* CoinMarketCapApi.swift */; };
@@ -24,6 +23,8 @@
 		4069375D2B5827D600A1AA7C /* CrossExchangeArbyStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069375C2B5827D600A1AA7C /* CrossExchangeArbyStrategy.swift */; };
 		4069375F2B58297400A1AA7C /* Pool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4069375E2B58297400A1AA7C /* Pool.swift */; };
 		406937612B5C5BF200A1AA7C /* ProxyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937602B5C5BF200A1AA7C /* ProxyWrapper.swift */; };
+		406937642B5D580100A1AA7C /* BackgroundFetchActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937632B5D580100A1AA7C /* BackgroundFetchActor.swift */; };
+		406937672B5D668A00A1AA7C /* Decoder+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937662B5D668A00A1AA7C /* Decoder+JSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +39,6 @@
 		406937492B570D2000A1AA7C /* NetworkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkListView.swift; sourceTree = "<group>"; };
 		4069374B2B570D3C00A1AA7C /* ExchangeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeListView.swift; sourceTree = "<group>"; };
 		4069374E2B57171E00A1AA7C /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
-		406937502B5717D600A1AA7C /* ExchangeCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCoin.swift; sourceTree = "<group>"; };
 		406937522B5717EF00A1AA7C /* Opportunity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opportunity.swift; sourceTree = "<group>"; };
 		406937552B5718B200A1AA7C /* CoinGeckoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinGeckoApi.swift; sourceTree = "<group>"; };
 		406937572B57783600A1AA7C /* CoinMarketCapApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarketCapApi.swift; sourceTree = "<group>"; };
@@ -46,6 +46,8 @@
 		4069375C2B5827D600A1AA7C /* CrossExchangeArbyStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossExchangeArbyStrategy.swift; sourceTree = "<group>"; };
 		4069375E2B58297400A1AA7C /* Pool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pool.swift; sourceTree = "<group>"; };
 		406937602B5C5BF200A1AA7C /* ProxyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyWrapper.swift; sourceTree = "<group>"; };
+		406937632B5D580100A1AA7C /* BackgroundFetchActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundFetchActor.swift; sourceTree = "<group>"; };
+		406937662B5D668A00A1AA7C /* Decoder+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decoder+JSON.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,8 @@
 		406937342B570B7A00A1AA7C /* Sharby */ = {
 			isa = PBXGroup;
 			children = (
+				406937652B5D666700A1AA7C /* Extensions */,
+				406937622B5D57E100A1AA7C /* Background Actors */,
 				4069375B2B5827BF00A1AA7C /* Strategies */,
 				406937542B57189200A1AA7C /* APIs */,
 				4069374D2B570D5B00A1AA7C /* Models */,
@@ -114,7 +118,6 @@
 			children = (
 				406937392B570B7A00A1AA7C /* Exchange.swift */,
 				4069374E2B57171E00A1AA7C /* Coin.swift */,
-				406937502B5717D600A1AA7C /* ExchangeCoin.swift */,
 				406937522B5717EF00A1AA7C /* Opportunity.swift */,
 				406937592B58236A00A1AA7C /* Network.swift */,
 				4069375E2B58297400A1AA7C /* Pool.swift */,
@@ -138,6 +141,22 @@
 				4069375C2B5827D600A1AA7C /* CrossExchangeArbyStrategy.swift */,
 			);
 			path = Strategies;
+			sourceTree = "<group>";
+		};
+		406937622B5D57E100A1AA7C /* Background Actors */ = {
+			isa = PBXGroup;
+			children = (
+				406937632B5D580100A1AA7C /* BackgroundFetchActor.swift */,
+			);
+			path = "Background Actors";
+			sourceTree = "<group>";
+		};
+		406937652B5D666700A1AA7C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				406937662B5D668A00A1AA7C /* Decoder+JSON.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,14 +229,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				406937672B5D668A00A1AA7C /* Decoder+JSON.swift in Sources */,
 				4069374A2B570D2000A1AA7C /* NetworkListView.swift in Sources */,
-				406937512B5717D600A1AA7C /* ExchangeCoin.swift in Sources */,
 				4069375D2B5827D600A1AA7C /* CrossExchangeArbyStrategy.swift in Sources */,
 				4069375A2B58236A00A1AA7C /* Network.swift in Sources */,
 				406937482B570D1700A1AA7C /* OpportunityListView.swift in Sources */,
 				4069375F2B58297400A1AA7C /* Pool.swift in Sources */,
 				406937612B5C5BF200A1AA7C /* ProxyWrapper.swift in Sources */,
 				406937582B57783600A1AA7C /* CoinMarketCapApi.swift in Sources */,
+				406937642B5D580100A1AA7C /* BackgroundFetchActor.swift in Sources */,
 				406937532B5717EF00A1AA7C /* Opportunity.swift in Sources */,
 				406937382B570B7A00A1AA7C /* MainView.swift in Sources */,
 				4069373A2B570B7A00A1AA7C /* Exchange.swift in Sources */,

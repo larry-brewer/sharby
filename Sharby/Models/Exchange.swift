@@ -12,9 +12,18 @@ import Foundation
 import SwiftData
 
 @Model
-final class Exchange: Codable {
+final class Exchange: Codable, CustomDebugStringConvertible {
+  var debugDescription: String {
+    "\(self.name)"
+  }
+
   @Attribute(.unique) var id: String
   var name: String
+
+  @Relationship(deleteRule: .noAction, minimumModelCount: 1)
+  var networks = [Network]()
+  // 1 Indexed
+  var networkPoolHighestIndex = [String: Int]()
 
   enum CodingKeys: String, CodingKey {
     case id

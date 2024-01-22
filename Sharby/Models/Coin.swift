@@ -15,7 +15,7 @@ final class Coin: Codable {
   }
 
   var rank: Int
-  @Attribute(.unique) var name: String
+  var name: String
   @Attribute(.unique) var symbol: String
 
   required init(from decoder: Decoder) throws {

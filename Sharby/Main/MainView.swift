@@ -15,6 +15,7 @@ struct MainView: View {
   @Query let networks: [Network]
   @Query let exchanges: [Exchange]
   @State var firstLoad = true
+  @State var rpm = 0
 
   var body: some View {
     VStack {
@@ -62,6 +63,8 @@ struct MainView: View {
           .foregroundColor(.white)
           .cornerRadius(10)
       }
+      Text("RPM: \(rpm)").padding(20)
+
     }.onAppear {
       Task {
         await loadData()
@@ -75,41 +78,20 @@ struct MainView: View {
     }
 
     self.firstLoad = false
-//    try! modelContext.delete(model: Coin.self)
-//    try! modelContext.delete(model: Network.self)
-//    try! modelContext.delete(model: Exchange.self)
-//    try! modelContext.delete(model: Pool.self)
-    print("Done deleting")
 
-
-    if (try! modelContext.fetch(FetchDescriptor<Coin>()).isEmpty) {
-      await CoinMarketCapApi().fetchCoins(modelContext: modelContext)
-      print("Fetched coins")
+    Task {
+      await BackgroundFetchActor(modelContainer: modelContext.container).fetchAllData()
+//
+      while true {
+//        print("CrossDexArby start")
+//        let pools = try! modelContext.fetch(FetchDescriptor<Pool>())
+//        CrossExchangeArbyStrategy().perform(pools: pools)
+//         Wait for 1 minute (60 seconds)
+        rpm = await ProxyWrapper.shared().rpm
+        try? await Task.sleep(nanoseconds: 1 * 1_000_000_000)
+      }
+//
     }
-
-    let ethNetworkFetchDescriptor = FetchDescriptor<Network>(predicate: #Predicate{ $0.id == "eth" })
-    let ethFetch = try! modelContext.fetch(ethNetworkFetchDescriptor)
-
-    var eth: Network
-    if ethFetch.count == 0 {
-      await CoinGeckoApi().fetchTop10Networks(modelContext: modelContext)
-      print("Fetched networks")
-    }
-
-    eth = try! modelContext.fetch(ethNetworkFetchDescriptor).first!
-
-    if (exchanges.isEmpty) {
-      let _ = await CoinGeckoApi().fetchDexes(network: eth, modelContext: modelContext)
-    }
-
-    await ProxyWrapper.shared()
-    for exchange in exchanges {
-      print("Fetching pools from exchange: \(exchange.name)")
-      await CoinGeckoApi().fetchPools(network: eth, dex: exchange, modelContext: modelContext)
-    }
-
-//    let pools = try! modelContext.fetch(FetchDescriptor<Pool>())
-//    CrossExchangeArbyStrategy().perform(pools: pools)
   }
 }
 

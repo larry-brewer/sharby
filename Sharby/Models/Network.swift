@@ -9,7 +9,24 @@ import Foundation
 import SwiftData
 
 @Model
-final class Network: Codable {
+final class Network: Codable, CustomDebugStringConvertible {
+  var debugDescription: String {
+    "\(self.name)"
+  }
+
+  static var allowedNetworkIds = [
+    "eth",
+    "bsc",
+    "arbitrum",
+    "polygon_pos",
+    "pulsechain",
+    "solana",
+    "optimism",
+    "cro",
+    "ronin",
+    "avax"
+  ]
+
   @Attribute(.unique) var id: String
   var name: String
 
