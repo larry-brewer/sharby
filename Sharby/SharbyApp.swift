@@ -15,7 +15,8 @@ struct SharbyApp: App {
             Coin.self,
             Network.self,
             Pool.self,
-            Exchange.self
+            Exchange.self,
+            Proxy.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

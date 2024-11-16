@@ -17,6 +17,7 @@ actor CoinMarketCapApi {
   init(modelContainer: ModelContainer) {
     self.modelContainer = modelContainer
     self.modelContext = ModelContext(modelContainer)
+    self.modelContext.autosaveEnabled = true
   }
 
   struct FetchCoinsResponse: Codable {

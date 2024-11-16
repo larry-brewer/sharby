@@ -12,13 +12,17 @@ struct CoinGeckoApi {
 
   let API_KEY = "CG-uFsg9JLAw7UeECihpwjLM4ys" //For non dex
   let BASE_URL = "https://api.geckoterminal.com/api/v2"
+  
+  let MARKET_CAP_MINIMUM = Decimal(100_000)
+
 
   let modelContainer: ModelContainer
   let modelContext: ModelContext
+
   init(modelContainer: ModelContainer) {
     self.modelContainer = modelContainer
     self.modelContext = ModelContext(modelContainer)
-    self.modelContext.autosaveEnabled = false
+    self.modelContext.autosaveEnabled = true
   }
 
   struct FetchNetworksResponse: Codable {
@@ -31,24 +35,21 @@ struct CoinGeckoApi {
 
     do {
       // Perform the API request and wait for the response
-      let session = await URLSession(configuration: ProxyWrapper.shared().roundRobinProxyConfig())
-      let (data, _) = try await session.data(from: networksUrl)
 
-      // Parse the JSON response
-      let json = try JSONSerialization.jsonObject(with: data, options: [])
+      let result = try await fetchData(url: networksUrl)
 
-      let allNetworksResp = try JSONDecoder().decode(FetchNetworksResponse.self, from: data)
-      let topNetworks = allNetworksResp.data
+      if let data = result.data {
+        let allNetworksResp = try JSONDecoder().decode(FetchNetworksResponse.self, from: data)
+        let topNetworks = allNetworksResp.data
 
-      for network in topNetworks {
-        if (Network.allowedNetworkIds.contains(network.id)) {
+        for network in topNetworks {
           modelContext.insert(network)
           allNetworks.append(network)
         }
       }
     } catch {
       // Handle errors
-      print("Error: \(error)")
+      print("Network Error: \(error)")
     }
 
     print("Fetched \(allNetworks.count) networks")
@@ -71,22 +72,21 @@ struct CoinGeckoApi {
 
     do {
       // Perform the API request and wait for the response
-      let session = await URLSession(configuration: ProxyWrapper.shared().roundRobinProxyConfig())
-      let (data, _) = try await session.data(from: dexesUrl)
+      let result = try await fetchData(url: dexesUrl)
 
-      // Parse the JSON response
-      let json = try JSONSerialization.jsonObject(with: data, options: [])
+      if let data = result.data {
+        let allDexesResponse = try JSONDecoder().decode(FetchDexesResponse.self, from: data)
+        let dexes = allDexesResponse.data
 
-      let allDexesResponse = try JSONDecoder().decode(FetchDexesResponse.self, from: data)
-      let dexes = allDexesResponse.data
-
-      for dex in dexes {
-        dex.networks.append(network)
-        allDexes.append(dex)
+        for dex in dexes {
+          dex.networks.append(network)
+          allDexes.append(dex)
+        }
       }
+
     } catch {
       // Handle errors
-      print("Error: \(error)")
+      print("Dex Error: \(error)")
     }
     
     return allDexes
@@ -120,15 +120,12 @@ struct CoinGeckoApi {
 
   func fetchAllPools() async {
     let exchanges = try! modelContext.fetch(FetchDescriptor<Exchange>(sortBy: [SortDescriptor(\.name)]))
-
+    
+    print("Fetching pools for \(exchanges.count)")
     var index = 0
     for dex in exchanges {
       Task {
        await fetchPoolsBy(dex: dex)
-      }
-
-      if (index == 0) {
-        break
       }
 
       index += 1
@@ -137,18 +134,19 @@ struct CoinGeckoApi {
 
   func fetchPoolsBy(dex: Exchange) async -> [Pool] {
     var allPools: [Pool] = []
-    print("Starting pool fetch for dex \(dex)")
+
     await withTaskGroup(of: [Pool].self) { group in
       for network in dex.networks {
-        for index in 1...2 { //Make this back to 10
+        for index in 1...10{ //TODO Make this back to 10
           group.addTask {
-            await fetchPoolsBy(dex: dex, network: network, index: index)
+            await CoinGeckoApi(modelContainer: modelContainer).fetchPoolsBy(dex: dex, network: network, index: index)
           }
         }
       }
 
       for await result in group {
         allPools.append(contentsOf: result)
+        try! result.first?.modelContext?.save()
       }
     }
 
@@ -160,21 +158,15 @@ struct CoinGeckoApi {
     let poolsUrl = URL(string: "\(BASE_URL)/networks/\(network.id)/dexes/\(dex.id)/pools?page=\(index)")!
 
     do {
-      let session = await URLSession(configuration: ProxyWrapper.shared().roundRobinProxyConfig())
-      let (data, _) = try await session.data(from: poolsUrl)
-      let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+      let result = try await fetchData(url: poolsUrl)
 
-      let decoder = JSONDecoder()
-      decoder.userInfo[CodingUserInfoKey(rawValue: "jsonDictionary")!] = json
+      if let data = result.data {
 
-      if (json.keys.contains("data")) {
-        let poolsData = try decoder.decode(FetchPoolsResponse.self, from: data)
+        let poolsData = try JSONDecoder().decode(FetchPoolsResponse.self, from: data)
 
         let pools = poolsData.data
-        
+
         for pool in pools {
-          pool.name
-          
           modelContext.insert(pool)
           pool.exchange = dex
           pool.network = network
@@ -182,14 +174,47 @@ struct CoinGeckoApi {
 
         return pools
       }
-      else {
-        print("Data missing: \(json)")
-      }
     } catch {
       // Handle errors for each task
       print("Error in task: \(error)")
     }
 
     return []
+  }
+
+//  TODO make this return a codable using generics
+  func fetchData(url:URL) async throws -> (data: Data?, json: Any?) {
+    let session = await URLSession(configuration: ProxyWrapper.shared(modelContainer: modelContainer).roundRobinProxyConfig())
+
+    do {
+      let (data, _) = try await session.data(from: url)
+//      TODO Dex Error still throwing parsing and not being caught below
+      let json = try JSONSerialization.jsonObject(with: data, options: [])
+      //      let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+      //
+      //      let decoder = JSONDecoder()
+      //      decoder.userInfo[CodingUserInfoKey(rawValue: "jsonDictionary")!] = json
+      return (data, json)
+    }
+    catch let error as NSError where error._domain == kCFErrorDomainCFNetwork as String && error._code == 310 {
+      if let proxyUrl = session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPProxy as String] as? String,
+         let proxyPort = session.configuration.connectionProxyDictionary?[kCFNetworkProxiesHTTPPort as String] as? Int {
+        await ProxyWrapper.shared(modelContainer: modelContainer).denyListProxy(proxyString: "\(proxyUrl):\(proxyPort)")
+
+        return try await fetchData(url: url) //Try again? Hopefully this will never cause an infinite recursion, no?
+      }
+      else {
+        print("Could not find failing proxy")
+        throw error
+      }
+
+    }
+    catch let error as NSError where error._domain == kCFErrorDomainCFNetwork as String && error._code == 3840 {
+      print("Could not parse JSON")
+      return (nil, nil)
+    }
+    catch {
+      throw error
+    }
   }
 }

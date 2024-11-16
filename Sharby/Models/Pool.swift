@@ -17,7 +17,9 @@ enum PoolParsingError: Error {
 final class Pool: Codable {
   @Attribute(.unique) var id: String
   var name: String
-  var price: Decimal
+  var price: Decimal?
+  var marketCapUSD: Decimal?
+  var reserveInUSD: Decimal?
 
   @Relationship(deleteRule: .noAction)
   var exchange: Exchange?
@@ -33,6 +35,7 @@ final class Pool: Codable {
   enum AttributesKeys: String, CodingKey {
     case name
     case base_token_price_native_currency
+    case market_cap_usd
   }
 
   required init(from decoder: Decoder) throws {
@@ -43,12 +46,27 @@ final class Pool: Codable {
       let attributesContainer = try container.nestedContainer(keyedBy: AttributesKeys.self, forKey: .attributes)
       name = try attributesContainer.decode(String.self, forKey: .name)
 
-      let stringPrice = try attributesContainer.decode(String.self, forKey: .base_token_price_native_currency)
-      if let price = Decimal(string: stringPrice) {
+
+      let stringPrice = try? attributesContainer.decode(String.self, forKey: .base_token_price_native_currency)
+
+      if let stringPrice = stringPrice,
+         let price = Decimal(string: stringPrice) {
         self.price = price
       }
       else {
-        throw PoolParsingError.missingPrice
+//        throw PoolParsingError.missingPrice
+      }
+      
+      let stringMarketCapUSD = try? attributesContainer.decode(String.self, forKey: .market_cap_usd)
+      if let stringMarketCapUSD = stringMarketCapUSD,
+         let marketCapUSD = Decimal(string: stringMarketCapUSD) {
+        self.marketCapUSD = marketCapUSD
+      }
+
+      let stringreserveInUSD = try? attributesContainer.decode(String.self, forKey: .market_cap_usd)
+      if let stringreserveInUSD = stringreserveInUSD,
+         let reserveInUSD = Decimal(string: stringreserveInUSD) {
+        self.reserveInUSD = reserveInUSD
       }
     } catch {
       let json = decoder.currentlyDecodingJSON() as! [String: Any]

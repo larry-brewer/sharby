@@ -25,7 +25,7 @@ struct CrossExchangeArbyStrategy {
    */
   
   func perform(pools: [Pool]) {
-    var coinPairToPrices: [String: [Pool]] = [:]
+    var coinPairToPrices = [String: [Pool]]()
 
     for pool in pools {
       
@@ -46,9 +46,9 @@ struct CrossExchangeArbyStrategy {
 
       print("Comparing: \(coin)")
 
-      let minPool = pools.min(by: { $0.price < $1.price })!
-      let maxPool = pools.max(by: { $0.price > $1.price })!
-      let percentDiff = (maxPool.price - minPool.price) / 2.0 * 100.0
+      let minPool = pools.min(by: { $0.price! < $1.price! })!
+      let maxPool = pools.max(by: { $0.price! > $1.price! })!
+      let percentDiff = (maxPool.price! - minPool.price!) / 2.0 * 100.0
       print("\(coin): % Diff: \(percentDiff)")
     }
   }

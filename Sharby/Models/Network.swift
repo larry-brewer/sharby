@@ -26,9 +26,12 @@ final class Network: Codable, CustomDebugStringConvertible {
     "ronin",
     "avax"
   ]
-
+  
   @Attribute(.unique) var id: String
   var name: String
+
+  @Relationship(deleteRule: .noAction, minimumModelCount: 0, inverse: \Exchange.networks)
+  var exchanges = [Exchange]()
 
   enum CodingKeys: String, CodingKey {
     case id

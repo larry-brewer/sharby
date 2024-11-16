@@ -20,5 +20,600 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E6F5DB2-2340-43B7-A035-1D9F58CACA67"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sharby/APIs/CoinGeckoApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "init(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8E6F5DB2-2340-43B7-A035-1D9F58CACA67 - a02e91b69aff25c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sharby.CoinGeckoApi.FetchPoolsResponse.init(from: Swift.Decoder) throws -&gt; Sharby.CoinGeckoApi.FetchPoolsResponse"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "1304">
+               </Location>
+               <Location
+                  uuid = "8E6F5DB2-2340-43B7-A035-1D9F58CACA67 - a02e91b69aff25c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sharby.CoinGeckoApi.FetchPoolsResponse.init(from: Swift.Decoder) throws -&gt; Sharby.CoinGeckoApi.FetchPoolsResponse"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "1328">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DE825C81-23AF-4116-942F-8C33EECB8535"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sharby/APIs/CoinGeckoApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "init(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DE825C81-23AF-4116-942F-8C33EECB8535 - a02e91b69aff2583"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sharby.CoinGeckoApi.FetchPoolsResponse.init(from: Swift.Decoder) throws -&gt; Sharby.CoinGeckoApi.FetchPoolsResponse"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "1012">
+               </Location>
+               <Location
+                  uuid = "DE825C81-23AF-4116-942F-8C33EECB8535 - a02e91b69aff25a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sharby.CoinGeckoApi.FetchPoolsResponse.init(from: Swift.Decoder) throws -&gt; Sharby.CoinGeckoApi.FetchPoolsResponse"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "1304">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D667A415-45E6-4904-9CAF-EE15299623A0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sharby/APIs/CoinGeckoApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "fetchData(url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D667A415-45E6-4904-9CAF-EE15299623A0 - bc623af4e0984c19"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; Foundation.Data"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "2864">
+               </Location>
+               <Location
+                  uuid = "D667A415-45E6-4904-9CAF-EE15299623A0 - c7e5310ae705bbcf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "3576">
+               </Location>
+               <Location
+                  uuid = "D667A415-45E6-4904-9CAF-EE15299623A0 - e2545fcb11bc3414"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(13) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "3064">
+               </Location>
+               <Location
+                  uuid = "D667A415-45E6-4904-9CAF-EE15299623A0 - c7e5310ae705bc2e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "3576">
+               </Location>
+               <Location
+                  uuid = "D667A415-45E6-4904-9CAF-EE15299623A0 - e2545fcb11bc33f5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(13) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "3064">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EADD7A0F-1321-436C-B7CA-C73004330559"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sharby/APIs/CoinGeckoApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "fetchTop10Networks()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EADD7A0F-1321-436C-B7CA-C73004330559 - 95360c3544e22574"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Sharby.CoinGeckoApi.fetchTop10Networks() async -&gt; Swift.Array&lt;Sharby.Network&gt;"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "1716">
+               </Location>
+               <Location
+                  uuid = "EADD7A0F-1321-436C-B7CA-C73004330559 - 436c6cb7bbd78b75"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Sharby.CoinGeckoApi.fetchTop10Networks() async -&gt; Swift.Array&lt;Sharby.Network&gt;"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "EADD7A0F-1321-436C-B7CA-C73004330559 - 95360c3544e22555"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Sharby.CoinGeckoApi.fetchTop10Networks() async -&gt; Swift.Array&lt;Sharby.Network&gt;"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "1508">
+               </Location>
+               <Location
+                  uuid = "EADD7A0F-1321-436C-B7CA-C73004330559 - 436c6cb7bbd78b54"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Sharby.CoinGeckoApi.fetchTop10Networks() async -&gt; Swift.Array&lt;Sharby.Network&gt;"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DFE87224-C44F-4604-A347-E93D45FC30D4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sharby/APIs/CoinGeckoApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "fetchData(url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DFE87224-C44F-4604-A347-E93D45FC30D4 - e0bc39257f981e0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(10) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  uuid = "DFE87224-C44F-4604-A347-E93D45FC30D4 - 9af587b3f450a7f5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) await resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "DFE87224-C44F-4604-A347-E93D45FC30D4 - 9af587b3f450a479"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) await resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "DFE87224-C44F-4604-A347-E93D45FC30D4 - 5fac7e9383875b81"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(12) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "DFE87224-C44F-4604-A347-E93D45FC30D4 - 5fac7e938387580d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(12) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "DFE87224-C44F-4604-A347-E93D45FC30D4 - b6c3bc00a7b2919f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(14) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "192"
+                  endingLineNumber = "192"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "DFE87224-C44F-4604-A347-E93D45FC30D4 - b6c3bc00a7b29213"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(14) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "120">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D50755B4-94D0-4908-A64D-F57C40595781"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sharby/APIs/CoinGeckoApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "fetchData(url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D50755B4-94D0-4908-A64D-F57C40595781 - c7e5310ae705ba53"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200"
+                  offsetFromSymbolStart = "1176">
+               </Location>
+               <Location
+                  uuid = "D50755B4-94D0-4908-A64D-F57C40595781 - fd7a8a216eab651"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "D50755B4-94D0-4908-A64D-F57C40595781 - 5fac7e9383875889"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(12) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "D50755B4-94D0-4908-A64D-F57C40595781 - e2545fcb11bc3588"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(13) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200"
+                  offsetFromSymbolStart = "672">
+               </Location>
+               <Location
+                  uuid = "D50755B4-94D0-4908-A64D-F57C40595781 - b6c3bc00a7b29297"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(14) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C92D891B-9C8A-473F-9173-97C09CE5CB1C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sharby/APIs/CoinGeckoApi.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "fetchData(url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C92D891B-9C8A-473F-9173-97C09CE5CB1C - c7e5310ae705bca2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "217"
+                  endingLineNumber = "217"
+                  offsetFromSymbolStart = "3904">
+               </Location>
+               <Location
+                  uuid = "C92D891B-9C8A-473F-9173-97C09CE5CB1C - e2545fcb11bc3379"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(13) suspend resume partial function for Sharby.CoinGeckoApi.fetchData(url: Foundation.URL) async throws -&gt; (data: Swift.Optional&lt;Foundation.Data&gt;, json: Swift.Optional&lt;Any&gt;)"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/CoinGeckoApi.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "217"
+                  endingLineNumber = "217"
+                  offsetFromSymbolStart = "3476">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "94D1AAF3-3B07-4CDC-91D7-EFE0ECAE1AA0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sharby/APIs/ProxyWrapper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "denyListProxy(proxyString:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C28F614-5684-4059-BC61-9AC61C2895ED"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sharby/APIs/ProxyWrapper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "denyListProxy(proxyString:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2C28F614-5684-4059-BC61-9AC61C2895ED - abe1f4c31c8c711c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sharby.ProxyWrapper.denyListProxy(proxyString: Swift.String) -&gt; ()"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/ProxyWrapper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "2C28F614-5684-4059-BC61-9AC61C2895ED - 1d44175d83fc335d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Sharby.Proxy) -&gt; Swift.Bool in Sharby.ProxyWrapper.denyListProxy(proxyString: Swift.String) -&gt; ()"
+                  moduleName = "Sharby"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lbrewer/workspace/Sharby/Sharby/APIs/ProxyWrapper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
