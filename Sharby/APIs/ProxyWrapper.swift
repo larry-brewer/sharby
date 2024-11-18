@@ -47,8 +47,8 @@ actor ProxyWrapper {
   var denyListedProxies = [Proxy]()
   var fetchingProxies = false
 
-  var proxy_cap_per_minute = 29
-  var proxy_request_count = [Proxy:Int]()
+  var proxyCapPerMinute = 29
+  var proxyRequestCount = [Proxy:Int]()
 
   @Published var rpm = 0
 
@@ -63,15 +63,15 @@ actor ProxyWrapper {
 
     repeat {
       if let randomProxy = proxies.randomElement() {
-        if ((proxy_request_count[randomProxy] ?? 0) < proxy_cap_per_minute) {
+        if ((proxyRequestCount[randomProxy] ?? 0) < proxyCapPerMinute) {
           proxy = randomProxy
-          proxy_request_count[randomProxy] = (proxy_request_count[randomProxy] ?? 0) + 1
+          proxyRequestCount[randomProxy] = (proxyRequestCount[randomProxy] ?? 0) + 1
 
           Task {
             try await Task.sleep(nanoseconds: 60 * 1_000_000_000)
 
             print("reducing \(randomProxy) by 1")
-            self.proxy_request_count[randomProxy]! -= 1
+            self.proxyRequestCount[randomProxy]! -= 1
             self.rpm -= 1
           }
         }
