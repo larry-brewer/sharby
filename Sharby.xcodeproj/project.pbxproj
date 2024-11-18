@@ -26,6 +26,7 @@
 		406937642B5D580100A1AA7C /* BackgroundFetchActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937632B5D580100A1AA7C /* BackgroundFetchActor.swift */; };
 		406937672B5D668A00A1AA7C /* Decoder+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406937662B5D668A00A1AA7C /* Decoder+JSON.swift */; };
 		4089DC412B5FE1600047DB07 /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4089DC402B5FE1600047DB07 /* Proxy.swift */; };
+		8F4C9EF72CEBDD6400EBEED2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C9EF62CEBDD5800EBEED2 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		406937632B5D580100A1AA7C /* BackgroundFetchActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundFetchActor.swift; sourceTree = "<group>"; };
 		406937662B5D668A00A1AA7C /* Decoder+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decoder+JSON.swift"; sourceTree = "<group>"; };
 		4089DC402B5FE1600047DB07 /* Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
+		8F4C9EF62CEBDD5800EBEED2 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				406937662B5D668A00A1AA7C /* Decoder+JSON.swift */,
+				8F4C9EF62CEBDD5800EBEED2 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				406937532B5717EF00A1AA7C /* Opportunity.swift in Sources */,
 				406937382B570B7A00A1AA7C /* MainView.swift in Sources */,
 				4069373A2B570B7A00A1AA7C /* Exchange.swift in Sources */,
+				8F4C9EF72CEBDD6400EBEED2 /* String.swift in Sources */,
 				4089DC412B5FE1600047DB07 /* Proxy.swift in Sources */,
 				406937362B570B7A00A1AA7C /* SharbyApp.swift in Sources */,
 				4069374C2B570D3C00A1AA7C /* ExchangeListView.swift in Sources */,

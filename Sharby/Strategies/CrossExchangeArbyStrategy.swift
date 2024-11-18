@@ -28,14 +28,14 @@ struct CrossExchangeArbyStrategy {
     var coinPairToPrices = [String: [Pool]]()
     for pool in pools {
       // A GPT count check approximates that the repeated coins are being collapsed into one, but the [Pool] isn't growing.
-      if var coinPair = coinPairToPrices[pool.name] {
+      if var coinPair = coinPairToPrices[pool.name.standardFormatting()] {
         coinPair.append(pool)
-        coinPairToPrices.updateValue(coinPair, forKey: pool.name)
+        coinPairToPrices.updateValue(coinPair, forKey: pool.name.standardFormatting())
       }
       else {
         var coinPool = [Pool]()
         coinPool.append(pool)
-        coinPairToPrices[pool.name] = coinPool
+        coinPairToPrices[pool.name.standardFormatting()] = coinPool
       }
     }
     print("\(coinPairToPrices.count) coin pairs before culling")
