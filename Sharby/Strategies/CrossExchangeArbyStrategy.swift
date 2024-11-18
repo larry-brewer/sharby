@@ -48,22 +48,57 @@ struct CrossExchangeArbyStrategy {
     // We do not have any coin pairs across exchanges. Por Que?
     var lengthOneChains = findLengthOneChains(coinPairToPrices: coinPairToPrices)
 
-    for (coin, pools) in coinPairToPrices {
-      if pools.count < 2 {
-        continue
+    // TODO: This is incredibly hamfisted and should be made into human-quality code. Also, I got no % diff on any trades.
+    for (trade1, trade2) in lengthOneChains {
+      var trade1Diff: Decimal?
+      var trade2Diff: Decimal?
+      for (coin, pools) in trade1 {
+        if pools.count < 2 {
+          continue
+        }
+
+        print("Comparing: \(coin)")
+
+        let minPool = pools.min(by: { $0.price! < $1.price! })!
+        let maxPool = pools.max(by: { $0.price! > $1.price! })!
+        let percentDiff = (maxPool.price! - minPool.price!) / 2.0 * 100.0
+        print("\(coin): % Diff: \(percentDiff)")
+        trade1Diff = percentDiff
+      }
+      for (coin, pools) in trade2 {
+        if pools.count < 2 {
+          continue
+        }
+
+        print("Comparing: \(coin)")
+
+        let minPool = pools.min(by: { $0.price! < $1.price! })!
+        let maxPool = pools.max(by: { $0.price! > $1.price! })!
+        let percentDiff = (maxPool.price! - minPool.price!) / 2.0 * 100.0
+        print("\(coin): % Diff: \(percentDiff)")
+        trade2Diff = percentDiff
       }
 
-      print("Comparing: \(coin)")
-
-      let minPool = pools.min(by: { $0.price! < $1.price! })!
-      let maxPool = pools.max(by: { $0.price! > $1.price! })!
-      let percentDiff = (maxPool.price! - minPool.price!) / 2.0 * 100.0
-      print("\(coin): % Diff: \(percentDiff)")
+      print("\(trade1.keys) + \(trade2.keys) diff: \(trade1Diff ?? -1) -> \(trade2Diff ?? -1)")
     }
-  }
 
+//    for (coin, pools) in coinPairToPrices {
+//      if pools.count < 2 {
+//        continue
+//      }
+//
+//      print("Comparing: \(coin)")
+//
+//      let minPool = pools.min(by: { $0.price! < $1.price! })!
+//      let maxPool = pools.max(by: { $0.price! > $1.price! })!
+//      let percentDiff = (maxPool.price! - minPool.price!) / 2.0 * 100.0
+//      print("\(coin): % Diff: \(percentDiff)")
+//    }
+  }
+  // This almost definitely could be more efficient.
   func findLengthOneChains(coinPairToPrices: [String: [Pool]]) -> [([String: [Pool]], [String: [Pool]])] {
     var lengthOneChains = [([String: [Pool]], [String: [Pool]])]()
+    // Trades only is just for visibility in console
     var tradesOnly = [(String, String)]()
     for (coin1, pool1) in coinPairToPrices {
       let endCoin1 = coin1.components(separatedBy: " ").last
