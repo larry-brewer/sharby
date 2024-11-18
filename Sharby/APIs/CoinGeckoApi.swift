@@ -45,6 +45,7 @@ struct CoinGeckoApi {
         for network in topNetworks {
           modelContext.insert(network)
           allNetworks.append(network)
+          break
         }
       }
     } catch {
@@ -138,8 +139,11 @@ struct CoinGeckoApi {
     await withTaskGroup(of: [Pool].self) { group in
       for network in dex.networks {
         for index in 1...10{ //TODO Make this back to 10
-          group.addTask {
-            await CoinGeckoApi(modelContainer: modelContainer).fetchPoolsBy(dex: dex, network: network, index: index)
+          if network.name == "Ethereum" {
+            print("Fetching pools by \(dex.name): \(network.name)")
+            group.addTask {
+              await CoinGeckoApi(modelContainer: modelContainer).fetchPoolsBy(dex: dex, network: network, index: index)
+            }
           }
         }
       }

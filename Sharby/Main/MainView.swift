@@ -80,12 +80,12 @@ struct MainView: View {
     self.firstLoad = false
 
     Task {
-      await BackgroundFetchActor(modelContainer: modelContext.container).fetchAllData()
+//      await BackgroundFetchActor(modelContainer: modelContext.container).fetchAllData()
 //
       while true {
 //        print("CrossDexArby start")
         let pools = try! modelContext.fetch(FetchDescriptor<Pool>())
-//        CrossExchangeArbyStrategy().perform(pools: pools)
+        CrossExchangeArbyStrategy().perform(pools: pools)
 //         Wait for 1 minute (60 seconds)
         rpm = await ProxyWrapper.shared(modelContainer: modelContext.container).rpm
         try? await Task.sleep(nanoseconds: 1 * 1_000_000_000)

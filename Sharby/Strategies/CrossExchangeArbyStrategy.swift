@@ -26,11 +26,11 @@ struct CrossExchangeArbyStrategy {
   
   func perform(pools: [Pool]) {
     var coinPairToPrices = [String: [Pool]]()
-
     for pool in pools {
-      
+      // A GPT count check approximates that the repeated coins are being collapsed into one, but the [Pool] isn't growing.
       if var coinPair = coinPairToPrices[pool.name] {
         coinPair.append(pool)
+        coinPairToPrices.updateValue(coinPair, forKey: pool.name)
       }
       else {
         var coinPool = [Pool]()
@@ -38,7 +38,14 @@ struct CrossExchangeArbyStrategy {
         coinPairToPrices[pool.name] = coinPool
       }
     }
-
+    print("\(coinPairToPrices.count) coin pairs before culling")
+    for (coin, pools) in coinPairToPrices {
+      if pools.count < 2 {
+        coinPairToPrices.removeValue(forKey: coin)
+      }
+    }
+    print("\(coinPairToPrices.count) coin pairs after culling")
+    // We do not have any coin pairs across exchanges. Por Que?
     for (coin, pools) in coinPairToPrices {
       if pools.count < 2 {
         continue
