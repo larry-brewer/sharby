@@ -7,15 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B966EF92-72A6-411D-B7E4-A865AB79FFC0"
+            uuid = "245A422C-5653-4EFF-9718-DE5C18836620"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sharby/Strategies/CrossExchangeArbyStrategy.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "perform(pools:)"
             landmarkType = "7">
          </BreakpointContent>

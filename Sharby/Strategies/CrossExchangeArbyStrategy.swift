@@ -46,6 +46,8 @@ struct CrossExchangeArbyStrategy {
     }
     print("\(coinPairToPrices.count) coin pairs after culling")
     // We do not have any coin pairs across exchanges. Por Que?
+    var lengthOneChains = findLengthOneChains(coinPairToPrices: coinPairToPrices)
+
     for (coin, pools) in coinPairToPrices {
       if pools.count < 2 {
         continue
@@ -58,5 +60,24 @@ struct CrossExchangeArbyStrategy {
       let percentDiff = (maxPool.price! - minPool.price!) / 2.0 * 100.0
       print("\(coin): % Diff: \(percentDiff)")
     }
+  }
+
+  func findLengthOneChains(coinPairToPrices: [String: [Pool]]) -> [([String: [Pool]], [String: [Pool]])] {
+    var lengthOneChains = [([String: [Pool]], [String: [Pool]])]()
+    var tradesOnly = [(String, String)]()
+    for (coin1, pool1) in coinPairToPrices {
+      let endCoin1 = coin1.components(separatedBy: " ").last
+
+      for (coin2, pool2) in coinPairToPrices where coin1 != coin2 {
+        let startCoin2 = coin2.components(separatedBy: " ").first
+        if startCoin2 == endCoin1 {
+          lengthOneChains.append(([coin1: pool1], [coin2: pool2]))
+          tradesOnly.append((coin1, coin2))
+        }
+      }
+    }
+    print("\(lengthOneChains.count) length 1 chains.")
+    print(tradesOnly)
+    return lengthOneChains
   }
 }
