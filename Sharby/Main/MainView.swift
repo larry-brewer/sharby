@@ -85,7 +85,7 @@ struct MainView: View {
       while true {
 //        print("CrossDexArby start")
         let pools = try! modelContext.fetch(FetchDescriptor<Pool>())
-        CrossExchangeArbyStrategy().perform(pools: pools)
+        CrossExchangeArbyStrategy().triangularArbitrage(pools: pools)
 //         Wait for 1 minute (60 seconds)
         rpm = await ProxyWrapper.shared(modelContainer: modelContext.container).rpm
         try? await Task.sleep(nanoseconds: 1 * 1_000_000_000)
