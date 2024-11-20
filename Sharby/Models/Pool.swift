@@ -20,6 +20,8 @@ final class Pool: Codable {
   var price: Decimal?
   var marketCapUSD: Decimal?
   var reserveInUSD: Decimal?
+  var quotePerBase: Decimal?
+  var basePerQuote: Decimal?
 
   @Relationship(deleteRule: .noAction)
   var exchange: Exchange?
@@ -36,6 +38,8 @@ final class Pool: Codable {
     case name
     case base_token_price_native_currency
     case market_cap_usd
+    case quote_token_price_base_token
+    case base_token_price_quote_token
   }
 
   required init(from decoder: Decoder) throws {
@@ -67,6 +71,18 @@ final class Pool: Codable {
       if let stringreserveInUSD = stringreserveInUSD,
          let reserveInUSD = Decimal(string: stringreserveInUSD) {
         self.reserveInUSD = reserveInUSD
+      }
+
+      let stringQuotePerBase = try? attributesContainer.decode(String.self, forKey: .quote_token_price_base_token)
+      if let stringQuotePerBase = stringQuotePerBase,
+         let quotePerBase = Decimal(string: stringQuotePerBase) {
+        self.quotePerBase = quotePerBase
+      }
+
+      let stringBasePerQuote = try? attributesContainer.decode(String.self, forKey: .base_token_price_quote_token)
+      if let stringBasePerQuote = stringBasePerQuote,
+         let basePerQuote = Decimal(string: stringBasePerQuote) {
+        self.basePerQuote = basePerQuote
       }
     } catch {
       let json = decoder.currentlyDecodingJSON() as! [String: Any]
