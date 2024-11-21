@@ -87,8 +87,8 @@ struct MainView: View {
         let pools = try! modelContext.fetch(FetchDescriptor<Pool>())
         CrossExchangeArbyStrategy().triangularArbitrage(pools: pools)
 //         Wait for 1 minute (60 seconds)
-        rpm = await ProxyWrapper.shared(modelContainer: modelContext.container).rpm
-        try? await Task.sleep(nanoseconds: 1 * 1_000_000_000)
+//        rpm = await ProxyWrapper.shared(modelContainer: modelContext.container).rpm
+//        try? await Task.sleep(nanoseconds: 1 * 1_000_000_000)
       }
 //
     }

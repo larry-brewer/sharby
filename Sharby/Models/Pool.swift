@@ -10,6 +10,7 @@ import SwiftData
 
 enum PoolParsingError: Error {
   case missingPrice
+  case missingForwardTrade
   // Add other cases for different error types as needed
 }
 
@@ -77,6 +78,9 @@ final class Pool: Codable {
       if let stringQuotePerBase = stringQuotePerBase,
          let quotePerBase = Decimal(string: stringQuotePerBase) {
         self.quotePerBase = quotePerBase
+      } else {
+        print("Quote Per Base was not coded.")
+        self.quotePerBase = 0
       }
 
       let stringBasePerQuote = try? attributesContainer.decode(String.self, forKey: .base_token_price_quote_token)
