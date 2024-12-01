@@ -24,7 +24,7 @@ struct CrossExchangeArbyStrategy {
 
    */
 
-  func triangularArbitrage(pools: [Pool]) {
+  func triangularArbitrage(pools: [Pool], context: ModelContext) {
     var coinPairToPrices = [String: [Pool]]()
     var triangles = [([String: [Pool]], [String: [Pool]], [String: [Pool]])]()
     // Create the Dictionary of trades pairs to pools.
@@ -61,6 +61,11 @@ struct CrossExchangeArbyStrategy {
       let tradeValueUSD = tradeValueInCoins * (trade1.values.first!.max(by: { $0.baseTokenPriceUSD! > $1.baseTokenPriceUSD! })?.baseTokenPriceUSD)!
       if tradeValueInCoins > 0 {
         print("Found a profit of \(tradePercent)% \(trade1.keys) using \(trade1.keys) -> \(trade2.keys) -> \(trade3.keys). This is a \(tradeValueUSD) profit in USD.")
+
+        context.insert(Opportunity(trades: [trade1, trade2, trade3],
+                                   tradeValueInCoins: tradeValueInCoins,
+                                   tradePercent: tradePercent,
+                                   tradeValueUSD: tradeValueUSD))
       }
     }
   }

@@ -12,8 +12,8 @@ struct MainView: View {
   @Environment(\.modelContext) private var modelContext
   @State private var buttonTitle = "Start"
 
-  @Query let networks: [Network]
-  @Query let exchanges: [Exchange]
+  @Query var networks: [Network]
+  @Query var exchanges: [Exchange]
   @State var firstLoad = true
   @State var rpm = 0
 
@@ -25,9 +25,7 @@ struct MainView: View {
             .font(.title)
 
           List {
-            OpportunityListView(name: "Opportunity 1")
-            OpportunityListView(name: "Opportunity 2")
-            OpportunityListView(name: "Opportunity 3")
+            OpportunityListView()
           }
         }
 
@@ -85,7 +83,7 @@ struct MainView: View {
       while true {
 //        print("CrossDexArby start")
         let pools = try! modelContext.fetch(FetchDescriptor<Pool>())
-        CrossExchangeArbyStrategy().triangularArbitrage(pools: pools)
+        CrossExchangeArbyStrategy().triangularArbitrage(pools: pools, context: modelContext)
 //         Wait for 1 minute (60 seconds)
         rpm = await ProxyWrapper.shared(modelContainer: modelContext.container).rpm
         try? await Task.sleep(nanoseconds: 1 * 1_000_000_000)
