@@ -26,7 +26,7 @@ struct MainView: View {
             .font(.title)
           OpportunityTableView(selectedOpportunity: $selectedOpportunity)
 
-          if let selectedOpportunity {
+          if selectedOpportunity != nil {
             ExpandedTriangleView(opportunity: $selectedOpportunity)
           }
         }
