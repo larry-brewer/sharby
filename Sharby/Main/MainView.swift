@@ -27,7 +27,7 @@ struct MainView: View {
           OpportunityTableView(selectedOpportunity: $selectedOpportunity)
 
           if let selectedOpportunity {
-            ExpandedTriangleView(opportunity: selectedOpportunity)
+            ExpandedTriangleView(opportunity: $selectedOpportunity)
           }
         }
 
