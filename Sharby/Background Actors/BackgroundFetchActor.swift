@@ -26,7 +26,7 @@ actor BackgroundFetchActor: ModelActor {
 //    try! modelContext.delete(model: Pool.self)
 //        print("Done deleting")
     
-    _ = await ProxyWrapper.shared(modelContainer: modelContainer)
+//    _ = await ProxyWrapper.shared(modelContainer: modelContainer)
 
 //    if (try! modelContext.fetch(FetchDescriptor<Coin>()).isEmpty) {
 //      await CoinMarketCapApi(modelContainer: modelContainer).fetchCoins()

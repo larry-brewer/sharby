@@ -13,13 +13,13 @@ struct ExpandedTriangleView: View {
 
   var body: some View {
     VStack {
-//      Text("Arbitrage Target: \(tradeTarget.name)")
-//      HStack {
-//        Text("First Trade: \(firstTrade.name.standardFormatting())")
-//        Text("On Exchange: \(firstTrade.exchange!)")
-//      }
-//      Text("Second Trade: \(secondTrade.name.standardFormatting())")
-//      Text("Third Trade: \(thirdTrade.name.standardFormatting())")
+      ForEach(opportunity.trades, id: \.self) { trade in
+        // Trade, exchange, volume, and maybe trustworthiness?
+        HStack {
+          Text("\(trade.keys.first?.components(separatedBy: " ").first! ?? "error") -> \(trade.keys.first?.components(separatedBy: " ").first! ?? "error")")
+          Text("Exchange: \(String(describing: trade.values.first!.max(by: { $0.quotePerBase! > $1.quotePerBase! })?.exchange))")
+        }
+      }
     }
   }
 }
