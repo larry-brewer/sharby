@@ -24,7 +24,7 @@ struct CrossExchangeArbyStrategy {
 
    */
 
-  func triangularArbitrage(pools: [Pool]) {
+  func triangularArbitrage(pools: [Pool], context: ModelContext) {
     var coinPairToPrices = [String: [Pool]]()
     var triangles = [([String: [Pool]], [String: [Pool]], [String: [Pool]])]()
     // Create the Dictionary of trades pairs to pools.
@@ -60,7 +60,12 @@ struct CrossExchangeArbyStrategy {
       let tradePercent = tradeValueInCoins * 100
       let tradeValueUSD = tradeValueInCoins * (trade1.values.first!.max(by: { $0.baseTokenPriceUSD! > $1.baseTokenPriceUSD! })?.baseTokenPriceUSD)!
       if tradeValueInCoins > 0 {
-        print("Found a profit of \(tradePercent)% \(trade1.keys) using \(trade1.keys) -> \(trade2.keys) -> \(trade3.keys). This is a \(tradeValueUSD) profit in USD.")
+        print("Found a profit of \(tradePercent)% \(trade1.keys) using \(trade1.keys) -> \(trade2.keys) -> \(trade3.keys). This is a \(tradeValueUSD) profit in USD. Uses exchanges \(trade1.values.first!.max(by: { $0.quotePerBase! > $1.quotePerBase! })?.exchange), \(trade2.values.first!.max(by: { $0.quotePerBase! > $1.quotePerBase! })?.exchange), \(trade3.values.first!.max(by: { $0.quotePerBase! > $1.quotePerBase! })?.exchange) ")
+
+        context.insert(Opportunity(trades: [trade1, trade2, trade3],
+                                   tradeValueInCoins: tradeValueInCoins,
+                                   tradePercent: tradePercent,
+                                   tradeValueUSD: tradeValueUSD))
       }
     }
   }
@@ -86,7 +91,7 @@ struct CrossExchangeArbyStrategy {
     }
     print("\(coinPairToPrices.count) coin pairs after culling")
     // We do not have any coin pairs across exchanges. Por Que?
-    var lengthOneChains = findLengthOneChains(coinPairToPrices: coinPairToPrices)
+    let lengthOneChains = findLengthOneChains(coinPairToPrices: coinPairToPrices)
 
     // TODO: This is incredibly hamfisted and should be made into human-quality code. Also, I got no % diff on any trades.
     for (trade1, trade2) in lengthOneChains {
