@@ -56,7 +56,12 @@ struct CrossExchangeArbyStrategy {
       let trade1value = trade1.values.first!.max(by: { $0.quotePerBase! > $1.quotePerBase! })?.quotePerBase
       let trade2value = trade2.values.first!.max(by: { $0.quotePerBase! > $1.quotePerBase! })?.quotePerBase
       let trade3value = trade3.values.first!.max(by: { $0.quotePerBase! > $1.quotePerBase! })?.quotePerBase
-      print("Found a profit of \(trade1value! * trade2value! * trade3value! - 1) \(trade1.keys) using \(trade1.keys) -> \(trade2.keys) -> \(trade3.keys).")
+      let tradeValueInCoins = trade1value! * trade2value! * trade3value! - 1
+      let tradePercent = tradeValueInCoins * 100
+      let tradeValueUSD = tradeValueInCoins * (trade1.values.first!.max(by: { $0.baseTokenPriceUSD! > $1.baseTokenPriceUSD! })?.baseTokenPriceUSD)!
+      if tradeValueInCoins > 0 {
+        print("Found a profit of \(tradePercent)% \(trade1.keys) using \(trade1.keys) -> \(trade2.keys) -> \(trade3.keys). This is a \(tradeValueUSD) profit in USD.")
+      }
     }
   }
 

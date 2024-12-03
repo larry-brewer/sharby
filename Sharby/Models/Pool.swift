@@ -10,6 +10,7 @@ import SwiftData
 
 enum PoolParsingError: Error {
   case missingPrice
+  case missingForwardTrade
   // Add other cases for different error types as needed
 }
 
@@ -22,6 +23,7 @@ final class Pool: Codable {
   var reserveInUSD: Decimal?
   var quotePerBase: Decimal?
   var basePerQuote: Decimal?
+  var baseTokenPriceUSD: Decimal?
 
   @Relationship(deleteRule: .noAction)
   var exchange: Exchange?
@@ -40,6 +42,7 @@ final class Pool: Codable {
     case market_cap_usd
     case quote_token_price_base_token
     case base_token_price_quote_token
+    case base_token_price_usd
   }
 
   required init(from decoder: Decoder) throws {
@@ -73,10 +76,22 @@ final class Pool: Codable {
         self.reserveInUSD = reserveInUSD
       }
 
+      let stringBaseTokenPriceUSD = try? attributesContainer.decode(String.self, forKey: .base_token_price_usd)
+      if let stringBaseTokenPriceUSD = stringBaseTokenPriceUSD,
+         let baseTokenPriceUSD = Decimal(string: stringBaseTokenPriceUSD) {
+        self.baseTokenPriceUSD = baseTokenPriceUSD
+      } else {
+        print("Base Token Does Not Have USD Price")
+        self.baseTokenPriceUSD = 0
+      }
+
       let stringQuotePerBase = try? attributesContainer.decode(String.self, forKey: .quote_token_price_base_token)
       if let stringQuotePerBase = stringQuotePerBase,
          let quotePerBase = Decimal(string: stringQuotePerBase) {
         self.quotePerBase = quotePerBase
+      } else {
+        print("Quote Per Base was not coded.")
+        self.quotePerBase = 0
       }
 
       let stringBasePerQuote = try? attributesContainer.decode(String.self, forKey: .base_token_price_quote_token)

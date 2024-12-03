@@ -80,7 +80,7 @@ struct MainView: View {
     self.firstLoad = false
 
     Task {
-//      await BackgroundFetchActor(modelContainer: modelContext.container).fetchAllData()
+      await BackgroundFetchActor(modelContainer: modelContext.container).fetchAllData()
 //
       while true {
 //        print("CrossDexArby start")

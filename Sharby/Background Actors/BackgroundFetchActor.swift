@@ -19,6 +19,7 @@ actor BackgroundFetchActor: ModelActor {
   }
   
   func fetchAllData() async {
+//    modelContext.container.deleteAllData() // Wipes all local data
     //    try! modelContext.delete(model: Coin.self)
 //    try! modelContext.delete(model: Network.self)
 //    try! modelContext.delete(model: Exchange.self)
