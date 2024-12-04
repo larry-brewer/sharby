@@ -20,13 +20,14 @@ actor BackgroundFetchActor: ModelActor {
   
   func fetchAllData() async {
 //    modelContext.container.deleteAllData() // Wipes all local data
-    //    try! modelContext.delete(model: Coin.self)
+//        try! modelContext.delete(model: Coin.self)
 //    try! modelContext.delete(model: Network.self)
 //    try! modelContext.delete(model: Exchange.self)
 //    try! modelContext.delete(model: Pool.self)
+//    try! modelContext.delete(model: Opportunity.self)
 //        print("Done deleting")
     
-//    _ = await ProxyWrapper.shared(modelContainer: modelContainer)
+    _ = await ProxyWrapper.shared(modelContainer: modelContainer)
 
 //    if (try! modelContext.fetch(FetchDescriptor<Coin>()).isEmpty) {
 //      await CoinMarketCapApi(modelContainer: modelContainer).fetchCoins()

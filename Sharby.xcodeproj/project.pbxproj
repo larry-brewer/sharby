@@ -27,6 +27,7 @@
 		4089DC412B5FE1600047DB07 /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4089DC402B5FE1600047DB07 /* Proxy.swift */; };
 		8F4C9EF72CEBDD6400EBEED2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4C9EF62CEBDD5800EBEED2 /* String.swift */; };
 		8F7A5AEA2CFE56AA0074C390 /* OpportunityTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7A5AE92CFE56AA0074C390 /* OpportunityTableView.swift */; };
+		8F88357E2CFFE3A0000D4E6E /* StableCoinArbyStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F88357D2CFFE3A0000D4E6E /* StableCoinArbyStrategy.swift */; };
 		8FEA763B2CFA7E9F004162B3 /* ExpandedTriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA763A2CFA7E9F004162B3 /* ExpandedTriangleView.swift */; };
 		8FEA763D2CFA81E0004162B3 /* TradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA763C2CFA81E0004162B3 /* TradeView.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		4089DC402B5FE1600047DB07 /* Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
 		8F4C9EF62CEBDD5800EBEED2 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		8F7A5AE92CFE56AA0074C390 /* OpportunityTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityTableView.swift; sourceTree = "<group>"; };
+		8F88357D2CFFE3A0000D4E6E /* StableCoinArbyStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StableCoinArbyStrategy.swift; sourceTree = "<group>"; };
 		8FEA763A2CFA7E9F004162B3 /* ExpandedTriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTriangleView.swift; sourceTree = "<group>"; };
 		8FEA763C2CFA81E0004162B3 /* TradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				4069375C2B5827D600A1AA7C /* CrossExchangeArbyStrategy.swift */,
+				8F88357D2CFFE3A0000D4E6E /* StableCoinArbyStrategy.swift */,
 			);
 			path = Strategies;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				406937362B570B7A00A1AA7C /* SharbyApp.swift in Sources */,
 				4069374C2B570D3C00A1AA7C /* ExchangeListView.swift in Sources */,
 				406937562B5718B200A1AA7C /* CoinGeckoApi.swift in Sources */,
+				8F88357E2CFFE3A0000D4E6E /* StableCoinArbyStrategy.swift in Sources */,
 				8F7A5AEA2CFE56AA0074C390 /* OpportunityTableView.swift in Sources */,
 				4069374F2B57171E00A1AA7C /* Coin.swift in Sources */,
 			);

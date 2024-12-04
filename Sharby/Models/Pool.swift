@@ -81,7 +81,7 @@ final class Pool: Codable {
          let baseTokenPriceUSD = Decimal(string: stringBaseTokenPriceUSD) {
         self.baseTokenPriceUSD = baseTokenPriceUSD
       } else {
-        print("Base Token Does Not Have USD Price")
+//        print("Base Token Does Not Have USD Price")
         self.baseTokenPriceUSD = 0
       }
 
@@ -90,7 +90,7 @@ final class Pool: Codable {
          let quotePerBase = Decimal(string: stringQuotePerBase) {
         self.quotePerBase = quotePerBase
       } else {
-        print("Quote Per Base was not coded.")
+//        print("Quote Per Base was not coded.")
         self.quotePerBase = 0
       }
 

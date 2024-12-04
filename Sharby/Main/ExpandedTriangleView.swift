@@ -16,8 +16,8 @@ struct ExpandedTriangleView: View {
       ForEach(opportunity!.trades, id: \.self) { trade in
         // Trade, exchange, volume, and maybe trustworthiness?
         HStack {
-          Text("\(trade.keys.first?.components(separatedBy: " ").first! ?? "error") -> \(trade.keys.first?.components(separatedBy: " ").last! ?? "error")")
-          Text("Exchange: \(trade.values.first!.max(by: { $0.quotePerBase! > $1.quotePerBase! })?.exchange)")
+          Text("\(trade.keys.first ?? "error") -> \(trade.keys.first ?? "error")")
+          Text("Exchange: \(trade.values.first!.max(by: { $0.quotePerBase! > $1.quotePerBase! })?.exchange?.name)")
         }
       }
     }
