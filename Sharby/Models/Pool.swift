@@ -24,6 +24,7 @@ final class Pool: Codable {
   var quotePerBase: Decimal?
   var basePerQuote: Decimal?
   var baseTokenPriceUSD: Decimal?
+  var fee: Decimal?
 
   @Relationship(deleteRule: .noAction)
   var exchange: Exchange?
@@ -51,7 +52,13 @@ final class Pool: Codable {
     
     do {
       let attributesContainer = try container.nestedContainer(keyedBy: AttributesKeys.self, forKey: .attributes)
-      name = try attributesContainer.decode(String.self, forKey: .name)
+      let poolName = try attributesContainer.decode(String.self, forKey: .name)
+      if poolName.last == "%" {
+        name = poolName.standardFormatting()
+        fee = Decimal(string: poolName.components(separatedBy: " ").last!)! / 100
+      } else {
+        name = poolName
+      }
 
 
       let stringPrice = try? attributesContainer.decode(String.self, forKey: .base_token_price_native_currency)
