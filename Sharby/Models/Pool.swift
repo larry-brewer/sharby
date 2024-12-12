@@ -25,6 +25,10 @@ final class Pool: Codable {
   var basePerQuote: Decimal?
   var baseTokenPriceUSD: Decimal?
   var fee: Decimal?
+  var fdvUSD: String? //  To check maximum allowable profit ignoring slippage
+  var priceChangePercentage: PriceChangePercentage // To help with volatility estimates
+  var transactions: Transactions
+
 
   @Relationship(deleteRule: .noAction)
   var exchange: Exchange?
@@ -35,6 +39,7 @@ final class Pool: Codable {
   enum CodingKeys: String, CodingKey {
     case id
     case attributes
+    case relationships
   }
 
   enum AttributesKeys: String, CodingKey {
@@ -44,6 +49,13 @@ final class Pool: Codable {
     case quote_token_price_base_token
     case base_token_price_quote_token
     case base_token_price_usd
+    case fdv_usd
+    case price_change_percentage
+    case transactions
+  }
+
+  enum RelationshipsKeys: String, CodingKey {
+    case dex
   }
 
   required init(from decoder: Decoder) throws {
@@ -106,6 +118,10 @@ final class Pool: Codable {
          let basePerQuote = Decimal(string: stringBasePerQuote) {
         self.basePerQuote = basePerQuote
       }
+
+      priceChangePercentage = try attributesContainer.decode(PriceChangePercentage.self, forKey: .price_change_percentage)
+
+      transactions = try attributesContainer.decode(Transactions.self, forKey: .transactions)
     } catch {
       let json = decoder.currentlyDecodingJSON() as! [String: Any]
       guard let attributes = json["attributes"] as? [String: Any],
@@ -126,5 +142,27 @@ final class Pool: Codable {
     var attributesContainer = container.nestedContainer(keyedBy: AttributesKeys.self, forKey: .attributes)
     try attributesContainer.encode(name, forKey: .name)
     try attributesContainer.encode(price, forKey: .base_token_price_native_currency)
+  }
+
+  struct TransactionPeriodDetails: Codable {
+    let buys: Int
+    let sells: Int
+    let buyers: Int
+    let sellers: Int
+  }
+
+  struct Transactions: Codable {
+    let m5: TransactionPeriodDetails
+    let m15: TransactionPeriodDetails
+    let m30: TransactionPeriodDetails
+    let h1: TransactionPeriodDetails
+    let h24: TransactionPeriodDetails
+  }
+
+  struct PriceChangePercentage: Codable {
+    let m5: String
+    let h1: String
+    let h6: String
+    let h24: String
   }
 }
