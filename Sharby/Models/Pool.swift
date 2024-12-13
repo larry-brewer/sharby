@@ -18,14 +18,15 @@ enum PoolParsingError: Error {
 final class Pool: Codable {
   @Attribute(.unique) var id: String
   var name: String
-  var price: Decimal?
+  var baseTokenPriceNativeCurrency: Decimal?
+  var quoteTokenPriceNativeCurrency: Decimal?
   var marketCapUSD: Decimal?
   var reserveInUSD: Decimal?
   var quotePerBase: Decimal?
   var basePerQuote: Decimal?
   var baseTokenPriceUSD: Decimal?
   var fee: Decimal?
-  var fdvUSD: String? //  To check maximum allowable profit ignoring slippage
+  var fdvUSD: Decimal? //  To check maximum allowable profit ignoring slippage
   var priceChangePercentage: PriceChangePercentage // To help with volatility estimates
   var transactions: Transactions
 
@@ -45,6 +46,7 @@ final class Pool: Codable {
   enum AttributesKeys: String, CodingKey {
     case name
     case base_token_price_native_currency
+    case quote_token_price_native_currency
     case market_cap_usd
     case quote_token_price_base_token
     case base_token_price_quote_token
@@ -72,17 +74,22 @@ final class Pool: Codable {
         name = poolName
       }
 
+      let stringBaseNativePrice = try? attributesContainer.decode(String.self, forKey: .base_token_price_native_currency)
 
-      let stringPrice = try? attributesContainer.decode(String.self, forKey: .base_token_price_native_currency)
-
-      if let stringPrice = stringPrice,
-         let price = Decimal(string: stringPrice) {
-        self.price = price
+      if let stringBaseNativePrice = stringBaseNativePrice,
+         let price = Decimal(string: stringBaseNativePrice) {
+        self.baseTokenPriceNativeCurrency = price
       }
       else {
 //        throw PoolParsingError.missingPrice
       }
-      
+
+      let stringQuoteNativePrice = try? attributesContainer.decode(String.self, forKey: .quote_token_price_native_currency)
+      if let stringQuoteNativePrice = stringQuoteNativePrice,
+         let price = Decimal(string: stringQuoteNativePrice) {
+        self.quoteTokenPriceNativeCurrency = price
+      }
+
       let stringMarketCapUSD = try? attributesContainer.decode(String.self, forKey: .market_cap_usd)
       if let stringMarketCapUSD = stringMarketCapUSD,
          let marketCapUSD = Decimal(string: stringMarketCapUSD) {
@@ -102,6 +109,15 @@ final class Pool: Codable {
       } else {
 //        print("Base Token Does Not Have USD Price")
         self.baseTokenPriceUSD = 0
+      }
+
+      let stringFdv = try? attributesContainer.decode(String.self, forKey: .fdv_usd)
+      if let stringFdv = stringFdv,
+         let fdvUSD = Decimal(string: stringFdv) {
+        self.fdvUSD = fdvUSD
+      } else {
+        // print("No FDV for this pool")
+        self.fdvUSD = 0
       }
 
       let stringQuotePerBase = try? attributesContainer.decode(String.self, forKey: .quote_token_price_base_token)
@@ -141,7 +157,7 @@ final class Pool: Codable {
 
     var attributesContainer = container.nestedContainer(keyedBy: AttributesKeys.self, forKey: .attributes)
     try attributesContainer.encode(name, forKey: .name)
-    try attributesContainer.encode(price, forKey: .base_token_price_native_currency)
+    try attributesContainer.encode(baseTokenPriceNativeCurrency, forKey: .base_token_price_native_currency)
   }
 
   struct TransactionPeriodDetails: Codable {
