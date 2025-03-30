@@ -18,12 +18,18 @@ enum PoolParsingError: Error {
 final class Pool: Codable {
   @Attribute(.unique) var id: String
   var name: String
-  var price: Decimal?
+  var baseTokenPriceNativeCurrency: Decimal?
+  var quoteTokenPriceNativeCurrency: Decimal?
   var marketCapUSD: Decimal?
   var reserveInUSD: Decimal?
   var quotePerBase: Decimal?
   var basePerQuote: Decimal?
   var baseTokenPriceUSD: Decimal?
+  var fee: Decimal?
+  var fdvUSD: Decimal? //  To check maximum allowable profit ignoring slippage
+  var priceChangePercentage: PriceChangePercentage // To help with volatility estimates
+  var transactions: Transactions
+
 
   @Relationship(deleteRule: .noAction)
   var exchange: Exchange?
@@ -34,15 +40,24 @@ final class Pool: Codable {
   enum CodingKeys: String, CodingKey {
     case id
     case attributes
+    case relationships
   }
 
   enum AttributesKeys: String, CodingKey {
     case name
     case base_token_price_native_currency
+    case quote_token_price_native_currency
     case market_cap_usd
     case quote_token_price_base_token
     case base_token_price_quote_token
     case base_token_price_usd
+    case fdv_usd
+    case price_change_percentage
+    case transactions
+  }
+
+  enum RelationshipsKeys: String, CodingKey {
+    case dex
   }
 
   required init(from decoder: Decoder) throws {
@@ -51,19 +66,30 @@ final class Pool: Codable {
     
     do {
       let attributesContainer = try container.nestedContainer(keyedBy: AttributesKeys.self, forKey: .attributes)
-      name = try attributesContainer.decode(String.self, forKey: .name)
+      let poolName = try attributesContainer.decode(String.self, forKey: .name)
+      if poolName.last == "%" {
+        name = poolName.standardFormatting()
+        fee = Decimal(string: poolName.components(separatedBy: " ").last!)! / 100
+      } else {
+        name = poolName
+      }
 
+      let stringBaseNativePrice = try? attributesContainer.decode(String.self, forKey: .base_token_price_native_currency)
 
-      let stringPrice = try? attributesContainer.decode(String.self, forKey: .base_token_price_native_currency)
-
-      if let stringPrice = stringPrice,
-         let price = Decimal(string: stringPrice) {
-        self.price = price
+      if let stringBaseNativePrice = stringBaseNativePrice,
+         let price = Decimal(string: stringBaseNativePrice) {
+        self.baseTokenPriceNativeCurrency = price
       }
       else {
 //        throw PoolParsingError.missingPrice
       }
-      
+
+      let stringQuoteNativePrice = try? attributesContainer.decode(String.self, forKey: .quote_token_price_native_currency)
+      if let stringQuoteNativePrice = stringQuoteNativePrice,
+         let price = Decimal(string: stringQuoteNativePrice) {
+        self.quoteTokenPriceNativeCurrency = price
+      }
+
       let stringMarketCapUSD = try? attributesContainer.decode(String.self, forKey: .market_cap_usd)
       if let stringMarketCapUSD = stringMarketCapUSD,
          let marketCapUSD = Decimal(string: stringMarketCapUSD) {
@@ -85,6 +111,15 @@ final class Pool: Codable {
         self.baseTokenPriceUSD = 0
       }
 
+      let stringFdv = try? attributesContainer.decode(String.self, forKey: .fdv_usd)
+      if let stringFdv = stringFdv,
+         let fdvUSD = Decimal(string: stringFdv) {
+        self.fdvUSD = fdvUSD
+      } else {
+        // print("No FDV for this pool")
+        self.fdvUSD = 0
+      }
+
       let stringQuotePerBase = try? attributesContainer.decode(String.self, forKey: .quote_token_price_base_token)
       if let stringQuotePerBase = stringQuotePerBase,
          let quotePerBase = Decimal(string: stringQuotePerBase) {
@@ -99,6 +134,10 @@ final class Pool: Codable {
          let basePerQuote = Decimal(string: stringBasePerQuote) {
         self.basePerQuote = basePerQuote
       }
+
+      priceChangePercentage = try attributesContainer.decode(PriceChangePercentage.self, forKey: .price_change_percentage)
+
+      transactions = try attributesContainer.decode(Transactions.self, forKey: .transactions)
     } catch {
       let json = decoder.currentlyDecodingJSON() as! [String: Any]
       guard let attributes = json["attributes"] as? [String: Any],
@@ -118,6 +157,28 @@ final class Pool: Codable {
 
     var attributesContainer = container.nestedContainer(keyedBy: AttributesKeys.self, forKey: .attributes)
     try attributesContainer.encode(name, forKey: .name)
-    try attributesContainer.encode(price, forKey: .base_token_price_native_currency)
+    try attributesContainer.encode(baseTokenPriceNativeCurrency, forKey: .base_token_price_native_currency)
+  }
+
+  struct TransactionPeriodDetails: Codable {
+    let buys: Int
+    let sells: Int
+    let buyers: Int
+    let sellers: Int
+  }
+
+  struct Transactions: Codable {
+    let m5: TransactionPeriodDetails
+    let m15: TransactionPeriodDetails
+    let m30: TransactionPeriodDetails
+    let h1: TransactionPeriodDetails
+    let h24: TransactionPeriodDetails
+  }
+
+  struct PriceChangePercentage: Codable {
+    let m5: String
+    let h1: String
+    let h6: String
+    let h24: String
   }
 }
